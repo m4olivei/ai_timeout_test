@@ -70,7 +70,7 @@ provisions the API key and host for your tenant.
 Recipes don't un-apply atomically. To remove cleanly:
 
 ```bash
-drush pmu ai_chatbot ai_assistant_api ai_provider_amazeeio ai -y
+drush pmu ai_chatbot ai_assistant_api ai_provider_amazeeio ai key -y
 drush config:delete ai_assistant_api.ai_assistant.ai_timeout_test
 drush config:delete block.block.ai_timeout_test
 drush cr
