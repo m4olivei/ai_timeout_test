@@ -30,8 +30,8 @@ LLM provider is `ai_provider_amazeeio`; bring your own amazee.ai API key.
 - Drupal 11
 - amazee.ai account and API key — https://www.amazee.io/
 
-Module dependencies (`drupal/ai`, `drupal/ai_provider_amazeeio`, `drupal/key`)
-are declared in `composer.json` and pulled in automatically.
+Module dependencies (`drupal/ai`, `drupal/ai_provider_amazeeio`) are declared
+in `composer.json` and pulled in automatically.
 
 ## Install and apply
 
@@ -44,12 +44,17 @@ composer config repositories.ai_timeout_test vcs https://github.com/m4olivei/ai_
 # 2. Pull in the recipe and its module dependencies.
 composer require m4olivei/ai_timeout_test:dev-main
 
-# 3. Apply. You'll be prompted for your amazee.ai API key and LLM host.
+# 3. Apply.
 drush recipe recipes/ai_timeout_test
 
 # 4. Rebuild caches.
 drush cr
 ```
+
+Then authenticate the amazee.ai provider via the UI at
+`/admin/config/ai/providers/amazeeio` — the recipe deliberately does not
+script this step, since `ai_provider_amazeeio` ships its own login flow that
+provisions the API key and host for your tenant.
 
 ## Reproduce
 
@@ -65,16 +70,12 @@ drush cr
 Recipes don't un-apply atomically. To remove cleanly:
 
 ```bash
-drush pmu ai_chatbot ai_assistant_api ai_provider_amazeeio ai key -y
+drush pmu ai_chatbot ai_assistant_api ai_provider_amazeeio ai -y
 drush config:delete ai_assistant_api.ai_assistant.ai_timeout_test
 drush config:delete block.block.ai_timeout_test
-drush config:delete key.key.ai_timeout_test_amazee
 drush cr
 ```
 
 ## Caveats
 
-- The amazee.ai API key is stored in **plaintext config** via the `key`
-  module's config provider. Fine for a disposable test environment, not
-  appropriate for production.
 - Anonymous users cannot interact with the block (auth/admin roles only).
