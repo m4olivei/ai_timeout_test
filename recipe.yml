@@ -16,6 +16,9 @@ input:
     description: 'Your amazee.ai API key. Sign up at https://www.amazee.io/ if you do not already have one. Stored in plaintext via the key module config provider — fine for a disposable test environment, not appropriate for production.'
     constraints:
       NotBlank: ~
+    default:
+      source: value
+      value: ''
     prompt:
       method: ask
       arguments:
