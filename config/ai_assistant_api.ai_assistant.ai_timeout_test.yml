@@ -22,7 +22,7 @@ history_context_length: '0'
 error_message: 'The assistant encountered an error.'
 specific_error_messages: {  }
 llm_provider: amazeeio
-llm_model: claude-sonnet-4-6
+llm_model: chat
 llm_configuration:
   max_tokens: 8192
   temperature: 0.7

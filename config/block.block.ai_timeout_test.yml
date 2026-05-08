@@ -26,7 +26,7 @@ settings:
   use_avatar: 0
   default_avatar: ''
   first_message: 'Send any prompt — the assistant will produce a deliberately long response.'
-  loading_message: 'Generating long-form response (60-90s)…'
+  loading_message: 'Generating long-form response'
   stream: 0
   toggle_state: open
   width: 400px
