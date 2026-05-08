@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ai_chatbot
+    - block
+    - system
+  theme:
+    - olivero
+id: ai_timeout_test
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: ai_deepchat_block
+settings:
+  id: ai_deepchat_block
+  label: 'AI Timeout Test'
+  label_display: '0'
+  provider: ai_chatbot
+  ai_assistant: ai_timeout_test
+  bot_name: 'Timeout Tester'
+  bot_image: /modules/contrib/ai/modules/ai_chatbot/assets/ai-icon-gradient.svg
+  use_username: 1
+  default_username: You
+  use_avatar: 0
+  default_avatar: ''
+  first_message: 'Send any prompt — the assistant will produce a deliberately long response.'
+  loading_message: 'Generating long-form response (60-90s)…'
+  agent_delegation_message: ''
+  stream: ''
+  toggle_state: open
+  width: 400px
+  height: 600px
+  placement: bottom-right
+  show_structured_results: ''
+  collapse_minimal: 0
+  style_file: ''
+  show_copy_icon: 0
+  verbose_mode: 0
+  expansion_method: expand
+visibility: {  }

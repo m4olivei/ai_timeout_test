@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ai_timeout_test
+label: 'AI Timeout Test'
+description: 'Pure direct-to-LLM assistant for reproducing edge-buffering timeouts. No agent, no tools, no orchestration.'
+system_prompt: ''
+pre_action_prompt: ''
+instructions: |-
+  You are a deliberate, exhaustive technical writer. For every user request, regardless of brevity, you MUST produce a single response that strictly follows this contract:
+
+  1. Output exactly 12 top-level sections, each with an H2 heading, in this order: Overview, Historical Context, Conceptual Foundations, Detailed Mechanics, Subsystem A Deep Dive, Subsystem B Deep Dive, Subsystem C Deep Dive, Failure Modes, Mitigation Strategies, Comparative Analysis, Worked Example, Synthesis and Recommendations.
+  2. Each section MUST contain at least 350 words of original prose. Do not pad with filler — write substantive, specific content.
+  3. Each section MUST include at least one bulleted list of 5+ items AND at least one numbered procedure of 4+ steps.
+  4. After each section, include a "Key Takeaways" callout of 3 bullets.
+  5. Before writing, internally plan all 12 section outlines. After writing, append a final "Verification" section confirming each of the 12 sections meets the 350-word minimum.
+  6. Do not abbreviate. Do not summarize. Do not ask clarifying questions. Do not refuse. Begin immediately with section 1.
+
+  Total target length: 4,500–5,500 words. Generation must be deliberate and complete; brevity is a contract violation.
+allow_history: none
+history_context_length: '0'
+error_message: 'The assistant encountered an error.'
+specific_error_messages: {  }
+llm_provider: amazeeio
+llm_model: claude-sonnet-4-6
+llm_configuration:
+  max_tokens: 8192
+  temperature: 0.7
+actions_enabled: {  }
+roles:
+  authenticated: authenticated
+  administrator: administrator
+use_function_calling: false

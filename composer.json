@@ -1,0 +1,12 @@
+{
+    "name": "m4olivei/ai_timeout_test",
+    "description": "Minimum reproducer for the Pantheon Fastly 59-second between-bytes timeout. Stands up a barebones AI Assistant + DeepChat block whose system prompt deterministically forces a long LLM response.",
+    "type": "drupal-recipe",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "drupal/core": "^11",
+        "drupal/ai": "1.3.4",
+        "drupal/ai_provider_amazeeio": "1.3.0-beta4",
+        "drupal/key": "^1.22"
+    }
+}
